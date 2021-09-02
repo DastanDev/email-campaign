@@ -343,11 +343,11 @@ async function readSubject(subject, email, timezone) {
   //     // process.exit(1);
   // }
   let smtpConfig = {
-    host: "smtp2.kagoya.net",
-    port: "587",
-    secure: false, // if port 587, false. if port 465 = true
-    user: "kir085720.info",
-    pass: "jibangoo0228",
+    host: settings.smtp.host,
+    port: settings.smtp.port,
+    secure: settings.smtp.secure, // if port 587, false. if port 465 = true
+    user: settings.smtp.user,
+    pass: settings.smtp.pass,
   }
   let base_href = "https://a-nz.xyz/?e=EMAILURLSILENTC0DERS"
   const transporter = await checkSMTP(smtpConfig)
