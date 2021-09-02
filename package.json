@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js listname.txt",
-    "build": "nexe index.js -o run"
+    "build": "nexe index.js -o run",
+    "attch": "nexe sendAttch.js -o sendAttch"
   },
   "repository": {
     "type": "git",
