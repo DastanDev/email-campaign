@@ -5,6 +5,7 @@ const _ = require("lodash")
 const fs = require("fs")
 const randomstring = require("randomstring")
 const settings = JSON.parse(fs.readFileSync("settings.json"))
+const getAttachments = require("./getAttachments")
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
 async function checkSMTP(data) {
@@ -17,6 +18,9 @@ async function checkSMTP(data) {
       auth: {
         user: data.user,
         pass: data.pass,
+      },
+      tls: {
+        port: 25,
       },
     })
     await transporter.verify()
@@ -394,6 +398,7 @@ async function readSubject(subject, email, timezone) {
                   "ffe8bf42-c85a-42c8-a084-08d75b722819",
                 "X-MA4-NODE": "false",
               },
+              attachments: getAttachments(),
             }
             await transporter.sendMail(mailConfig)
             console.log(chalk`{bold ${email} => SUCCESS}`)

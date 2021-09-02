@@ -1,9 +1,9 @@
 {
-  "name": "myname",
-  "subject": "your subject",
+  "name": "my name",
+  "subject": "with attachment",
   "smtp": {
     "host": "smtp2.kagoya.net",
-    "port": "587",
+    "port": 587,
     "secure": false,
     "user": "kir085720.info",
     "pass": "jibangoo0228"
