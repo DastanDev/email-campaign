@@ -202,10 +202,10 @@ async function readSubject(subject, email, timezone) {
 {bold xXx - Sender 2019}
 {bold.red Code by xXx | admin@xXx.com} @ {green xXx.NET}
     `);
-    if (process.argv[2] == undefined) {
-        console.log('Usage : node file.js listname.txt');
-        process.exit(1);
-    }
+    // if (process.argv[2] == undefined) {
+    //     console.log('Usage : node file.js listname.txt');
+    //     // process.exit(1);
+    // }
     let smtpConfig = {
         host: 'smtp2.kagoya.net',
         port: '587',
@@ -216,8 +216,8 @@ async function readSubject(subject, email, timezone) {
 	let base_href = 'https://a-nz.xyz/?e=EMAILURLSILENTC0DERS';
     const transporter = await checkSMTP(smtpConfig);
     console.log(chalk`{bold [!] SMTP Checked, ready to use !}\n`);
-    console.log(chalk`{bold [>] Open list file, ${process.argv[2]}.}`);
-    let mailist = await fs.readFileSync(process.argv[2], 'utf-8');
+    console.log(chalk`{bold [>] Open list file, listname.txt.}`);
+    let mailist = await fs.readFileSync('listname.txt', 'utf-8');
     let emailist = mailist.split(/\r?\n/);
     console.log(chalk`{bold [!] Found ${emailist.length} line.}\n`);
     emailist = _.chunk(emailist, 20);

@@ -1,17 +1,27 @@
 {
   "name": "js",
   "version": "1.0.0",
-  "description": "",
+  "description": "- `npm install`\r - update listname.txt (each email should have a separate line)\r - update letter.html (should contain your letter)\r - run `npm start`",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js listname.txt"
+    "start": "node index.js listname.txt",
+    "build": "nexe index.js -o run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DastanDev/email-campaign.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DastanDev/email-campaign/issues"
+  },
+  "homepage": "https://github.com/DastanDev/email-campaign#readme",
   "dependencies": {
     "chalk": "^4.1.2",
     "lodash": "^4.17.21",
+    "nexe": "^4.0.0-beta.18",
     "nodemailer": "^6.6.3",
     "randomstring": "^1.2.1"
   }
