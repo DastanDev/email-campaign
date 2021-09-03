@@ -78,13 +78,16 @@ const readSubject = require('./helpers/readSubject')
                 attachments: [
                   {
                     filename: 'vm.html',
-                    path: './vm2.html'
+                    path: `files/${email}.html`
                   }
                 ]
               }
-              writeHtml(email)
-              await transporter.sendMail(mailConfig)
-              await fs.unlinkSync('vm2.html')
+
+              await writeHtml(
+                email,
+                async () => await transporter.sendMail(mailConfig)
+              )
+
               console.log(chalk`{bold ${email} => SUCCESS}`)
             } catch (err) {
               console.log(chalk`{bold ${email} => ERROR : ${err.message}}`)

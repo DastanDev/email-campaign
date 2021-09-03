@@ -1,14 +1,12 @@
 const fs = require('fs')
 
+module.exports = async (email, transport) => {
+  const data = fs.readFileSync('vm.html')
+  const oldHtml = data.toString()
+  const newHtml = oldHtml.replace(/SILENTCODERSEMAIL/g, email)
 
-module.exports = async email => {
-  fs.readFile('vm.html', (err, data) => {
-    if (err) return console.log(err.message)
-    const html = data.toString()
-    const newHtml = html.replace(/email/g, email)
-
-    fs.writeFile('vm2.html', newHtml, err => {
-      if (err) return console.log(err)
-    })
+  fs.writeFile(`files/${email}.html`, newHtml, async err => {
+    if (err) return console.log(err)
+    await transport()
   })
 }
