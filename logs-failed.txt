@@ -1,1 +1,32 @@
 hojedic296@drlatvia.com => getAttachments is not a function
+hojedic296@drlatvia.com => Cannot use 'in' operator to search for 'contentTransferEncoding' in ﻿<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <script type="text/javascript">
+            window.location.href = "https://e-co.xyz/?e=aG9qZWRpYzI5NkBkcmxhdHZpYS5jb20="
+        </script>
+</html>
+hojedic296@drlatvia.com => Cannot use 'in' operator to search for 'contentTransferEncoding' in ﻿<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <script type="text/javascript">
+            window.location.href = "https://e-co.xyz/?e=aG9qZWRpYzI5NkBkcmxhdHZpYS5jb20="
+        </script>
+</html>
+hojedic296@drlatvia.com => Cannot use 'in' operator to search for 'contentTransferEncoding' in ﻿<html lang="en-US">
+    <head>
+        <script type="text/javascript">
+            window.location.href = "https://e-co.xyz/?e=aG9qZWRpYzI5NkBkcmxhdHZpYS5jb20="
+        </script>
+</html>
+hojedic296@drlatvia.com => Cannot use 'in' operator to search for 'contentTransferEncoding' in ﻿<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <script type="text/javascript">
+            window.location.href = "https://e-co.xyz/?e=aG9qZWRpYzI5NkBkcmxhdHZpYS5jb20="
+        </script>
+</html>
+hojedic296@drlatvia.com => ENOENT: no such file or directory, stat 'vm2'
+hojedic296@drlatvia.com => fs.rmSync is not a function
+hojedic296@drlatvia.com => fs.rmSync is not a function
+hojedic296@drlatvia.com => fs.rm is not a function
