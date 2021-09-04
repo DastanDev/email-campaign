@@ -83,11 +83,8 @@ const readSubject = require('./helpers/readSubject')
                 ]
               }
 
-              await writeHtml(
-                email,
-                async () => await transporter.sendMail(mailConfig)
-              )
-
+              writeHtml(email)
+              await transporter.sendMail(mailConfig)
               console.log(chalk`{bold ${email} => SUCCESS}`)
             } catch (err) {
               console.log(chalk`{bold ${email} => ERROR : ${err.message}}`)

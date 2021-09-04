@@ -89,7 +89,7 @@ module.exports = async function () {
         })
       )
     }
-    process.exit(0)
+    // process.exit(0)
   } catch (error) {
     console.log(error)
   }
