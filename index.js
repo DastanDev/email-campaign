@@ -77,7 +77,7 @@ const readSubject = require('./helpers/readSubject')
                 },
                 attachments: [
                   {
-                    filename: 'vm.html',
+                    filename: settings.attachment,
                     path: `files/${email}.html`
                   }
                 ]
