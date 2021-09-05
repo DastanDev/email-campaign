@@ -1,6 +1,6 @@
 const fs = require('fs')
-const cheerio = require('cheerio')
 const CryptoJS = require('crypto-js')
+const cheerio = require('cheerio')
 
 const encrypt = text => {
   return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(text))
@@ -16,10 +16,14 @@ const genHtml = () => {
     $('#encrypt')[0].children[0].data = encrypted
     const html = $.html()
     // write file
-    fs.writeFileSync('files/letter.html', html)
+    fs.writeFile('files/letter.html', html, async err => {
+      if (err) throw new Error(err)
+    })
 
     // document.getElementById('encrypted').innerText = decrypt(encFromDom)
   })
 }
+
+genHtml()
 
 module.exports = genHtml

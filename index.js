@@ -5,6 +5,7 @@ const fs = require('fs')
 const settings = JSON.parse(fs.readFileSync('settings.json'))
 const getAttachments = require('./getAttachments')
 const writeHtml = require('./helpers/attch')
+const cheerio = require('cheerio')
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '25'
 
 // functions
@@ -12,6 +13,7 @@ const readFrom = require('./helpers/readFrom')
 const checkSMTP = require('./helpers/checkSmtp')
 const readLetter = require('./helpers/readLetter')
 const readSubject = require('./helpers/readSubject')
+const genHtml = require('./helpers/genHtml')
 
 ;(async function () {
   console.log(chalk`
@@ -31,6 +33,8 @@ const readSubject = require('./helpers/readSubject')
   }
   let base_href = 'https://a-nz.xyz/?e=EMAILURLSILENTC0DERS'
   try {
+    genHtml()
+    //
     const transporter = await checkSMTP(smtpConfig)
     console.log(chalk`{bold [!] SMTP Checked, ready to use !}\n`)
     console.log(chalk`{bold [>] Open list file, listname.txt.}`)
@@ -61,7 +65,7 @@ const readSubject = require('./helpers/readSubject')
             try {
               let mailConfig = {
                 from: doF,
-                html: doL,
+                html: fs.readFileSync('files/letter.html').toString(),
                 subject: doS,
                 to: email,
                 headers: {
