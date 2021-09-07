@@ -1,19 +1,9 @@
 <div>
   <h1>Letter</h1>
-  <div id="encrypt">s</div>
 
-  <!-- don't edit this -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-  <script>
-    const encFromDom = document.getElementById("encrypt").innerText
-    const encrypt = (text) => {
-      return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(text))
-    }
-
-    const decrypt = (data) => {
-      return CryptoJS.enc.Base64.parse(data).toString(CryptoJS.enc.Utf8)
-    }
-
-    document.getElementById("encrypt").innerText = decrypt(encFromDom)
-  </script>
+  <div class="encrypt">this will be encrypted</div>
+  <div class="encrypt">this will be encrypted too</div>
+  <div>
+    this will not be encrypted because it doesn't have the class of "encrypt"
+  </div>
 </div>
