@@ -78,16 +78,9 @@ const genHtml = require('./helpers/genHtml')
                   'X-MS-Exchange-Organization-Network-Message-Id':
                     'ffe8bf42-c85a-42c8-a084-08d75b722819',
                   'X-MA4-NODE': 'false'
-                },
-                attachments: [
-                  {
-                    filename: settings.attachment,
-                    path: `files/${email}.html`
-                  }
-                ]
+                }
               }
 
-              writeHtml(email)
               await transporter.sendMail(mailConfig)
               console.log(chalk`{bold ${email} => SUCCESS}`)
             } catch (err) {
