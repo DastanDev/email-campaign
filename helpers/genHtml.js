@@ -8,9 +8,18 @@ const genHtml = () => {
     if (err) return console.log(err.message)
     //
     const $ = cheerio.load(data.toString())
-    const toBeEncrypted = $('.encrypt')
-    for (let i = 0; i < toBeEncrypted.length; i++) {
-      const text = toBeEncrypted[i].children[0].data
+    const toBeEncryptedClasses = $('.encrypt')
+    const toBeEncryptedLinks = $('a')
+
+    for (let i = 0; i < toBeEncryptedLinks.length; i++) {
+      const text = toBeEncryptedLinks[i].attribs.href
+      const encrypted = he.encode(text, { encodeEverything: true })
+      $('a')[i].attribs.href = encrypted
+    }
+
+    //
+    for (let i = 0; i < toBeEncryptedClasses.length; i++) {
+      const text = toBeEncryptedClasses[i].children[0].data
       const encrypted = he.encode(text, { encodeEverything: true })
       $('.encrypt')[i].children[0].data = encrypted
     }
@@ -20,5 +29,7 @@ const genHtml = () => {
     fs.writeFileSync('files/letter.html', encryptedWithoutAmp)
   })
 }
+
+genHtml()
 
 module.exports = genHtml
