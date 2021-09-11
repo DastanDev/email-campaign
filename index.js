@@ -3,9 +3,7 @@ const chalk = require('chalk')
 const _ = require('lodash')
 const fs = require('fs')
 const settings = JSON.parse(fs.readFileSync('settings.json'))
-const getAttachments = require('./getAttachments')
-const writeHtml = require('./helpers/attch')
-const cheerio = require('cheerio')
+const genhtmlSync = require('./helpers/genHtmlSync')
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '25'
 
 // functions
@@ -33,7 +31,6 @@ const genHtml = require('./helpers/genHtml')
   }
   let base_href = 'https://a-nz.xyz/?e=EMAILURLSILENTC0DERS'
   try {
-    genHtml()
     //
     const transporter = await checkSMTP(smtpConfig)
     console.log(chalk`{bold [!] SMTP Checked, ready to use !}\n`)
@@ -56,6 +53,7 @@ const genHtml = require('./helpers/genHtml')
               'Australia/Perth',
               base_href
             )
+
             const doF = await readFrom(settings.name, email)
             const doS = await readSubject(
               settings.subject,
@@ -65,7 +63,7 @@ const genHtml = require('./helpers/genHtml')
             try {
               let mailConfig = {
                 from: doF,
-                html: fs.readFileSync('files/letter.html').toString(),
+                html: fs.readFileSync(genhtmlSync(email)).toString(),
                 subject: doS,
                 to: email,
                 headers: {

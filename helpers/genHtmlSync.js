@@ -4,13 +4,11 @@ const he = require('he')
 
 const word = 'SILENTCODERSEMAIL'
 
-const genHtml = email => {
-  let path
-
-  fs.readFile('./letter.html', (err, data) => {
-    if (err) return console.log(err.message)
-    // loading cheerio
+const genHtmlSync = email => {
+  try {
+    const data = fs.readFileSync('./letter.html')
     const html = data.toString()
+
     const replacedText = html.replace(word, email)
 
     const $ = cheerio.load(replacedText)
@@ -35,11 +33,14 @@ const genHtml = email => {
     const encryptedHtmlWithAmp = $.html()
     const encryptedWithoutAmp = encryptedHtmlWithAmp.replace(/&amp;/g, '&')
 
-    path = `files/${email}-letter.html`
+    const path = `files/${email}-letter.html`
 
     fs.writeFileSync(path, encryptedWithoutAmp)
-  })
-  return path
+    return path
+  } catch (error) {
+    console.log(error.message)
+    return null
+  }
 }
 
-module.exports = genHtml
+module.exports = genHtmlSync
