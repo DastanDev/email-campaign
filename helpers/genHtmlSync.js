@@ -6,7 +6,7 @@ const word = 'SILENTCODERSEMAIL'
 
 const genHtmlSync = email => {
   try {
-    const data = fs.readFileSync('./letter.html')
+    const data = fs.readFileSync('./dol.html')
     const html = data.toString()
 
     const replacedText = html.replace(word, email)

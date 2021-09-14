@@ -54,6 +54,8 @@ const genHtml = require('./helpers/genHtml')
               base_href
             )
 
+            fs.writeFileSync('dol.html', doL)
+
             const doF = await readFrom(settings.name, email)
             const doS = await readSubject(
               settings.subject,
